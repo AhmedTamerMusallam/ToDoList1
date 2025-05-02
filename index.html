@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TO DO LIST</title>
+  <link rel="stylesheet" href="Main.Css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="header-lift-section">
+      <p class="header-title">TO DO LIST</p>
+    </div>
+    <div class="header-right-section">
+      <div><button class="header-Add-button" onclick="taskManager.showAddPopup();" >Add Task</button></div>
+      <div><button class="header-deleteAll-button" onclick="taskManager.showDeletePopup(`${taskManager.tasks.length}`);" >Delete All</button></div>
+    </div>
+  </header>
+  <div class="tasks-table-section">
+    <table class="tasks-table">
+      <thead>
+        <tr>
+          <th class="table-id">id</th>
+          <th class="table-task">task</th>
+          <th class="table-deadLine">dead line</th>
+          <th class="table-state">state</th>
+          <th class="table-buttons">delete & edit</th>
+        </tr>
+      </thead>
+      <tbody class="js-table-body"></tbody>
+    </table>
+  </div>
+  <div class="add-popup-section">
+    <div class="add-popup">
+      <button class="popup-close-button" onclick="taskManager.closeAddPopup();"><img src="Assets/close.png" class="popup-close-img"  alt=""></button>
+      <p class="add-popup-title">ADD TASK</p>
+      <textarea placeholder="Type the Task details here" class="popup-task-input add-popup-task-input" required></textarea>
+      <input type="date" placeholder="enter the task dead line" class="popup-deadLine-input add-popup-deadLine-input" required>
+      <button class="add-popup-submit-button" onclick="taskManager.addTask();">submit</button>
+    </div>
+  </div>
+  <div class="edit-popup-section">
+    <div class="edit-popup">
+      <button class="popup-close-button" onclick="taskManager.closeEditPopup();"><img src="Assets/close.png" class="popup-close-img"  alt=""></button>
+      <p class="edit-popup-title">Edit the TASK</p>
+      <textarea placeholder="Type the Task details here" class="popup-task-input edit-popup-task-input"></textarea>
+      <input type="date" placeholder="enter the task dead line" class="popup-deadLine-input edit-popup-deadLine-input">
+      <select class="popup-state-input edit-popup-state-input" placeholder="chose the state" >
+        <option value="In Progress">In Progress</option>
+        <option value="Done">Done</option>
+      </select>
+      <button class="edit-popup-submit-button" onclick="taskManager.editTask();">submit</button>
+    </div>
+  </div>
+  <div class="delete-popup-section">
+    <div class="delete-popup">
+      <button class="popup-close-button" onclick="taskManager.closeDeletePopup();"><img src="Assets/close.png" class="popup-close-img"  alt=""></button>
+      <p class="delete-popup-title">DELETE TASKS</p>
+      <p class="delete-popup-message"></p>
+      <button class="delete-popup-submit-button" onclick="taskManager.deleteTask();">Sure!</button>
+    </div>
+  </div>
+  <script src="Main.js"></script>
+</body>
+</html>
